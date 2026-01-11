@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph id="G" edgedefault="directed">
+    <node id="n0" name = "A"</node>
+    <node id="n1" name = "B"</node>
+    <edge isDirected="true" source="n0" target="n1" weight = "5.5"</edge>
+  </graph>
+</graphml>
