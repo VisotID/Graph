@@ -303,10 +303,8 @@ public:
 
     /// ¬озвращает список соседей вершины
     /// —ложность: O(V)
-    /// <param name="vertex">¬ершина</param>
-    /// <returns>ћассив вершин, с которыми у данной вершины есть св€зь в любом направлении</returns>
-    /// <exception cref="runtime_error - вершина не существует">
-    /// </exception>
+    /// vertex - вершина
+    /// ¬озвращает массив вершин, с которыми у данной вершины есть св€зь в любом направлении
     vector<T> GetNeighbors(const T& vertex) const {
 
         auto it = indexMap.find(vertex);
@@ -316,15 +314,18 @@ public:
         int idx = it->second;
         vector<T> neighbors;
 
-        for (size_t j = 0; j < vertices.size(); ++j) {
+        for (size_t j = 0; j < vertices.size(); ++j) 
+        {
 
             // исход€щие рЄбра
-            if (adj[idx][j] != INF) {
+            if (adj[idx][j] != INF) 
+            {
                 neighbors.push_back(vertices[j]);
             }
 
             // вход€щие рЄбра
-            else if (adj[j][idx] != INF) {
+            else if (adj[j][idx] != INF) 
+            {
                 neighbors.push_back(vertices[j]);
             }
         }
@@ -333,22 +334,19 @@ public:
 
     /// ѕолучение веса ребра между двум€ вершинами
     /// —ложность: O(1)
-    /// <param name="from">1 вершина</param>
-    /// <param name="to">2 вершина</param>
-    /// <returns>вес ребра между двум€ вершинами</returns>
-    /// <exception cref="runtime_error - одна из вершин не существует или ребро не существует">
-    /// </exception>
+    /// from - 1 вершина, to - 2 вершина
+    /// ¬озвращаем вес ребра между двум€ вершинами
     W GetWeight(const T& from, const T& to) const {
         auto it1 = indexMap.find(from);
         auto it2 = indexMap.find(to);
         if (it1 == indexMap.end() || it2 == indexMap.end()) // если хот€ бы одной из вершин не существует
-            throw runtime_error("GetWeight: вершина не найдена");
+            throw runtime_error("¬ершина не найдена");
 
         int u = it1->second;
         int v = it2->second;
 
         if (adj[u][v] == INF) // если ребра не существует
-            throw runtime_error("GetWeight: ребро отсутствует");
+            throw runtime_error("–ебро отсутствует");
 
         return adj[u][v];
     }
